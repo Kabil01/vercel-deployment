@@ -35,7 +35,7 @@ function ManageEvent() {
 
     try {
       const result = await axios.post(
-        "http://localhost:5000/upload-image",
+        "https://vercel-deployment-server-henna.vercel.app/insert/upload-image",
         formData,
         {
           headers: { "Content-Type": "multipart/form-data" },
@@ -65,7 +65,7 @@ function ManageEvent() {
 
   const getImage = async () => {
     try {
-      const result = await axios.get("http://localhost:5000/get-image");
+      const result = await axios.get("https://vercel-deployment-server-henna.vercel.app/insert/get-image");
       setAllImage(result.data.data);
     } catch (error) {
       console.error("Error fetching images:", error);
@@ -75,7 +75,7 @@ function ManageEvent() {
   const prioritizeImage = async (index) => {
     const imageId = allImage[index]._id;
     try {
-      await axios.put(`http://localhost:5000/prioritize-image/${imageId}`);
+      await axios.put(`https://vercel-deployment-server-henna.vercel.app/insert/prioritize-image/${imageId}`);
       getImage(); // Refresh images after prioritization
       setPriorityPopup(true);
     } catch (error) {
@@ -86,7 +86,7 @@ function ManageEvent() {
   const reducePriority = async (index) => {
     const imageId = allImage[index]._id;
     try {
-      await axios.put(`http://localhost:5000/reduce-priority/${imageId}`);
+      await axios.put(`https://vercel-deployment-server-henna.vercel.app/insert/reduce-priority/${imageId}`);
       getImage(); // Refresh images after reducing priority
       setLowPriorityPopup(true);
     } catch (error) {
@@ -97,7 +97,7 @@ function ManageEvent() {
   const deleteImage = async (index) => {
     const imageId = allImage[index]._id;
     try {
-      await axios.delete(`http://localhost:5000/delete-image/${imageId}`);
+      await axios.delete(`https://vercel-deployment-server-henna.vercel.app/insert/delete-image/${imageId}`);
       getImage(); // Refresh images after deletion
       setDeletePopup(true);
     } catch (error) {
