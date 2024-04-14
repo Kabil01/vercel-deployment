@@ -31,7 +31,7 @@ const ODRegistrationForm = () => {
 
     const fetchData = async () => {
         try {
-            const response = await axios.get('http://localhost:5000/downloadODRegistrations');
+            const response = await axios.get('https://vercel-deployment-server-henna.vercel.app/insert/downloadODRegistrations');
             setODRegistrations(response.data);
         } catch (error) {
             console.error('Error fetching data:', error);
@@ -66,7 +66,7 @@ const ODRegistrationForm = () => {
         e.preventDefault();
 
         try {
-            const response = await fetch('http://localhost:5000/register', {
+            const response = await fetch('https://vercel-deployment-server-henna.vercel.app/insert/register', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
@@ -101,7 +101,7 @@ const ODRegistrationForm = () => {
 
     const handleDownloadEvent = async (eventId) => {
         try {
-            const response = await axios.get(`http://localhost:5000/downloadEvent/${eventId}`, {
+            const response = await axios.get('https://vercel-deployment-server-henna.vercel.app/insert/downloadEvent/${eventId}`, {
                 responseType: 'blob'
             });
     
