@@ -101,7 +101,7 @@ const ODRegistrationForm = () => {
 
     const handleDownloadEvent = async (eventId) => {
         try {
-            const response = await axios.get(`https://vercel-deployment-server-henna.vercel.app/insert/downloadEvent/${eventId}`, {
+            const response = await axios.get('https://vercel-deployment-server-henna.vercel.app/insert/downloadEvent/${eventId}', {
                 responseType: 'blob'
             });
     
