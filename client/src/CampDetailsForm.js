@@ -78,7 +78,7 @@ function CampDetailsForm() {
     e.preventDefault();
     try {
       console.log("Form Data:", formData); // Log the form data before sending the request
-      const response = await fetch('http://localhost:5000/insertCampDetails', {
+      const response = await fetch('https://vercel-deployment-server-henna.vercel.app/insert/insertCampDetails', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'
